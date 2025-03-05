@@ -1,21 +1,21 @@
-import { Component, input } from "@angular/core";
-import { TagModule } from "primeng/tag";
+import { Component, input } from '@angular/core';
+import { TagModule } from 'primeng/tag';
 @Component({
-  selector: "uebiz-tag",
+  selector: 'uebiz-tag',
   imports: [TagModule],
-  templateUrl: "./tag.component.html",
+  templateUrl: './tag.component.html',
 })
 export class TagComponent {
   severity = input<
-    | "success"
-    | "secondary"
-    | "info"
-    | "warn"
-    | "danger"
-    | "contrast"
+    | 'success'
+    | 'secondary'
+    | 'info'
+    | 'warn'
+    | 'danger'
+    | 'contrast'
     | undefined
-  >("info");
-  value = input("");
+  >('info');
+  value = input('');
   rounded = input(false);
-  icon = input("");
+  icon = input('');
 }

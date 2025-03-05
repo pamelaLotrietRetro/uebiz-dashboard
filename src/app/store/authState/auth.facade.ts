@@ -1,7 +1,11 @@
 import { inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '@store/authState/auth.actions';
-import { selectAuthLoading, selectAuthUser, selectAuthError } from '@store/authState/auth.selectors';
+import {
+  selectAuthLoading,
+  selectAuthUser,
+  selectAuthError,
+} from '@store/authState/auth.selectors';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { authRequest } from '@models/auth.model';
 
