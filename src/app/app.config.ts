@@ -20,11 +20,11 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: Aura,
         options: {
-          prefix: "uebiz",
-          darkModeSelector: "none",
+          prefix: 'uebiz',
+          darkModeSelector: 'none',
           cssLayer: {
-            name: "primeng",
-            order: "theme, base, primeng",
+            name: 'primeng',
+            order: 'theme, base, primeng',
           },
         },
       },

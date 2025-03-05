@@ -9,5 +9,6 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'uebiz-dashboard';
+  name = 'name';
+  titles = 'uebiz-dashboard';
 }

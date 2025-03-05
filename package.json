@@ -53,6 +53,7 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.3",
     "globals": "^16.0.0",
+    "husky": "^9.1.7",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -66,14 +67,6 @@
     "typescript-eslint": "^8.25.0"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
-    ],
-    "*.{json,md,html,css,scss}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,ts}": "npm run lint"
   }
 }
