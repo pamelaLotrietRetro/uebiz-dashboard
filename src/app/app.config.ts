@@ -6,7 +6,7 @@ import Aura from '@primeng/themes/aura';
 import { routes } from './app.routes';
 import { authEffects } from '@store/authState/auth.effects';
 import { provideEffects } from '@ngrx/effects';
-import { provideState } from '@ngrx/store';
+import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { authFeatureKey, authReducer } from '@store/authState/auth.reducer';
 
@@ -28,6 +28,7 @@ export const appConfig: ApplicationConfig = {
         },
       },
     }),
+    provideStore(),
     provideEffects([authEffects]),
     provideState(authFeatureKey, authReducer),
     provideStoreDevtools({

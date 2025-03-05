@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AuthActions } from './auth.actions';
-import { AuthService } from '@app/shared/services/auth.service';
+import { AuthService } from '@services/auth.service';
 import { catchError, map, of, switchMap } from 'rxjs';
-import { authRequest, authResponse } from '@app/shared/models/auth.model';
+import { authRequest, authResponse } from '@models/auth.model';
 
 @Injectable()
 export class authEffects {

@@ -1,4 +1,4 @@
-import { authRequest, authResponse } from '@app/shared/models/auth.model';
+import { authRequest, authResponse } from '@models/auth.model';
 import { createActionGroup, props } from '@ngrx/store';
 
 export const AuthActions = createActionGroup({
