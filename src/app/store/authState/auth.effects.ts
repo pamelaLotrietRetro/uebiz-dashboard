@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AuthActions } from './auth.actions';
 import { AuthService } from '@services/auth.service';
@@ -7,7 +7,9 @@ import { authRequest, authResponse } from '@models/auth.model';
 
 @Injectable()
 export class authEffects {
-  constructor(private actions$: Actions, private authService: AuthService) {}
+    
+  private actions$ = inject(Actions);
+  private authService = inject(AuthService);
 
   authenticateUser$ = createEffect(() =>
     this.actions$.pipe(

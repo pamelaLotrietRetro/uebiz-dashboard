@@ -1,4 +1,4 @@
-import { inject, Injectable, Signal } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '@store/authState/auth.actions';
 import { selectAuthLoading, selectAuthUser, selectAuthError } from '@store/authState/auth.selectors';
