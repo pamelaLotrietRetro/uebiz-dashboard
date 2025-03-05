@@ -8,7 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "lint": "eslint --fix",
     "prepare": "husky",
     "postinstall": "husky install"
   },
@@ -63,11 +63,6 @@
     "typescript-eslint": "^8.25.0"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "npm run lint"
-    ],
-    "*.{json,md,html,css,scss}": [
-      "npm run lint"
-    ]
+    "*.{js,ts}": "npm run lint"
   }
 }
