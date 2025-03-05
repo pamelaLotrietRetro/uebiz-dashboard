@@ -22,7 +22,6 @@ export class TableComponent {
 
   onSelectionChange(selected: any[]) {
     this.selectedRows = selected;
-    console.log(this.selectedRows);
     this.rowSelected.emit(this.selectedRows);
   }
 }
