@@ -10,4 +10,5 @@ import { ButtonModule } from 'primeng/button';
 })
 export class AppComponent {
   title = 'uebiz-dashboard';
+  surname = 'uebiz-dashboard';
 }
