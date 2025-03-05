@@ -1,0 +1,66 @@
+<p-table
+  #dataTable
+  [value]="data()"
+  responsiveLayout="scroll"
+  [scrollable]="true"
+  [paginator]="true"
+  [rows]="rows()"
+  [rowsPerPageOptions]="rowsPerPageOptions()"
+  sortMode="multiple"
+
+  (selectionChange)="onSelectionChange($event)"
+  [loading]="loading()"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      @for (col of columns(); track col; let i = $index) {
+        <th
+        [pSortableColumn]="i === 0 ? col.field : undefined"
+      >
+        {{ col.header }}
+        @if(i === 0){
+            <p-sortIcon field="{{ col.field }}"></p-sortIcon>
+        }
+      </th>
+      }
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+    <tr [pSelectableRow]="rowData">
+      <td>
+        <p-tableCheckbox
+          [value]="rowData"
+        ></p-tableCheckbox>
+      </td>
+      @for (col of columns(); track col) {
+        <td>
+            @if(col.field !== 'status'){
+                <span>{{ rowData[col.field] }}</span>
+            }
+            @if(col.field === 'status'){
+                <uebiz-tag
+                [severity]="rowData.status === 'Critical' ? 'danger' : 'success'"
+                [value]="rowData.status"
+                [rounded]="true"
+              >
+              </uebiz-tag>
+            }
+          </td>
+      }
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="loadingbody" let-columns>
+    @for( row of [1, 2, 3, 4, 5]; track row){
+        <tr>
+            @for (col of columns; track col) {}
+            <td >
+              <uebiz-skeleton-loader></uebiz-skeleton-loader>
+            </td>
+          </tr>
+    }
+  </ng-template>
+</p-table>

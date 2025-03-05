@@ -1,0 +1,10 @@
+<div class="flex mt-12 mb-12">
+  <uebiz-button buttonText="Export" (actionEvent)="exportData()" [disabled]="false" [loading]="false"></uebiz-button>
+</div>
+<uebiz-table
+  [columns]="tableColumns"
+  [data]="tableData"
+  [rows]="5"
+  [rowsPerPageOptions]="[5, 10, 25, 50]"
+  (rowSelected)="getSelectedRows($event)"
+></uebiz-table>

@@ -1,0 +1,14 @@
+<p-button
+  [label]="buttonText()"
+  [icon]="icon() ? 'pi ' + icon : undefined"
+  styleClass="{{
+    'whitespace-nowrap py-4 px-4 text-base font-normal rounded-2xl gap-1 h-10 min-w-[5rem] ' +
+      classElements +
+      (icon() ? ' has-icon' : '')
+  }}"
+  [iconPos]="iconPosition()"
+  (click)="actionItem()"
+  [disabled]="disabled()"
+  [loading]="loading()"
+>
+</p-button>
