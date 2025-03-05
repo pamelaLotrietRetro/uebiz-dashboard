@@ -63,3 +63,15 @@ For more information on using the Angular CLI, including detailed command refere
 ```bash
 npm run lint
 ```
+
+# Environment Setup
+
+```bash
+ng generate environments
+```
+the `angular.json` gets updated with fileReplacements configuration for specific build targets
+
+# Building development configuration
+
+```bash
+ng build --configuration development
