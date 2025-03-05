@@ -14,6 +14,8 @@ function loadComponent(folder: string, path: string) {
 }
 
 export const routes: Routes = [
+  { path: 'hardware', loadComponent: loadComponent('folder_name', 'hardware') },
+
   {
     path: 'URL',
     loadComponent: loadComponent('folder_name', 'component_name'),
