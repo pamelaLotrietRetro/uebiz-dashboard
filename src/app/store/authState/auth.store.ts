@@ -1,8 +1,8 @@
 import { signalStore, withState, withMethods, patchState, withComputed } from '@ngrx/signals';
 import { inject, computed } from '@angular/core';
-import { AuthActions } from './auth.actions';
 import { Store } from '@ngrx/store';
 import { authRequest, authResponse } from '@models/auth.model';
+import { AuthActions } from '@store/authState/auth.actions';
 
 interface AuthState {
   user: authResponse | null;
