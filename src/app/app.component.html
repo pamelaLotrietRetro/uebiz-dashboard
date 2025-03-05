@@ -1,4 +1,4 @@
-<div class="card flex justify-center">
+<!-- <div class="card flex justify-center">
   <p-button label="Check" styleClass="!w-52 !bg-orange-500 !text-center" />
 </div>
 <h1 class="text-3xl font-bold underline">Hello world!</h1>
@@ -7,5 +7,14 @@
 <i class="pi pi-check"></i>
 <i class="pi pi-times"></i>
 <span class="pi pi-search"></span>
-<span class="pi pi-user"></span>
-<router-outlet></router-outlet>
+<span class="pi pi-user"></span> -->
+<main class="w-screen min-h-screen flex items-stretch">
+  <div class="flex flex-col w-[58px]">
+    <!-- TODO: add sidebar here -->
+  </div>
+  <div class="flex-1">
+    <!-- TODO: conditional rendering for top-menu -->
+    <uebiz-top-menu />
+    <router-outlet></router-outlet>
+  </div>
+</main>

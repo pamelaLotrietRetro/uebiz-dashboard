@@ -1,8 +1,12 @@
-import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  provideZoneChangeDetection,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient,provideHttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { CustomTranslateLoader } from '@services/translate.loader.service';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
@@ -47,7 +51,6 @@ export const appConfig: ApplicationConfig = {
     }),
   ],
 };
-
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new CustomTranslateLoader(http);
