@@ -1,8 +1,7 @@
-import { signalStore, withState, withMethods, patchState, withComputed } from '@ngrx/signals';
-import { inject, computed } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { signalStore, withState, withMethods, patchState } from '@ngrx/signals';
+import { inject } from '@angular/core';
+import { AuthService } from '@services/auth.service';
 import { authRequest, authResponse } from '@models/auth.model';
-import { AuthActions } from '@store/authState/auth.actions';
 
 interface AuthState {
   user: authResponse | null;
@@ -19,19 +18,21 @@ const initialState: AuthState = {
 export const AuthStore = signalStore(
   { providedIn: 'root' },
   withState(initialState),
-  withComputed(({ user }) => ({
-    isAuthenticated: computed(() => !!user()),
-  })),
-  withMethods((store, storeService = inject(Store)) => ({
+  withMethods((store, authService = inject(AuthService)) => ({
     authenticateUser(user: authRequest) {
       patchState(store, { isLoading: true, error: null });
-      storeService.dispatch(AuthActions.authenticateUser({ user }));
-    },
-    setUser(response: authResponse) {
-      patchState(store, { user: response, isLoading: false });
-    },
-    setError(error: string) {
-      patchState(store, { error, isLoading: false });
+      console.log('AuthStore: authenticateUser called', { user });
+
+      authService.authenticate(user).subscribe({
+        next: (response) => {
+          patchState(store, { user: response, isLoading: false });
+          console.log('AuthStore: authenticateUserSuccess', { response });
+        },
+        error: (error) => {
+          patchState(store, { error: error.message, isLoading: false });
+          console.error('AuthStore: authenticateUserFailed', { error });
+        },
+      });
     },
   }))
 );
