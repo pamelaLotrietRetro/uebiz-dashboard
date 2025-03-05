@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
 import { ButtonComponent } from "@components/button/button.component";
 import { TableComponent } from "@components/table/table.component";
-import { utils, writeFile, WorkBook } from "xlsx";
+import { Workbook } from 'exceljs';
+import { saveAs } from 'file-saver';
 import { SkeletonModule } from 'primeng/skeleton';
 @Component({
   selector: "uebiz-hardware",
@@ -94,11 +95,23 @@ export class HardwareComponent {
     if (this.selectedRows.length === 0) {
       return;
     }
-
-    const worksheet = utils.json_to_sheet(this.selectedRows);
-    const workbook: WorkBook = utils.book_new();
-    utils.book_append_sheet(workbook, worksheet, "Selected Rows");
-
-    writeFile(workbook, "Selected_Rows.xlsx");
+  
+    const workbook = new Workbook();
+    const worksheet = workbook.addWorksheet("Selected Rows");
+  
+    worksheet.columns = this.tableColumns.map(col => ({
+      header: col.header,
+      key: col.field,
+      width: 20 
+    }));
+  
+    this.selectedRows.forEach(row => worksheet.addRow(row));
+  
+    workbook.xlsx.writeBuffer().then((buffer) => {
+      const blob = new Blob([buffer], {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      });
+      saveAs(blob, "Selected_Rows.xlsx");
+    })
   }
 }
