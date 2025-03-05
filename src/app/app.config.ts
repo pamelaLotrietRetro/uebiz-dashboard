@@ -12,6 +12,7 @@ import { provideEffects } from '@ngrx/effects';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { authFeatureKey, authReducer } from '@store/authState/auth.reducer';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -32,12 +33,9 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: Aura,
         options: {
-          prefix: "uebiz",
-          darkModeSelector: "none",
-          cssLayer: {
-            name: "primeng",
-            order: "theme, base, primeng",
-          },
+          prefix: 'uebiz',
+          darkModeSelector: 'none',
+          cssLayer: false,
         },
       },
     }),

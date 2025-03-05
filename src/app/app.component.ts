@@ -10,5 +10,6 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'uebiz-dashboard';
+  name = 'name';
+  titles = 'uebiz-dashboard';
 }

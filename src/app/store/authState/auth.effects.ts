@@ -7,7 +7,6 @@ import { authRequest, authResponse } from '@models/auth.model';
 
 @Injectable()
 export class authEffects {
-    
   private actions$ = inject(Actions);
   private authService = inject(AuthService);
 
@@ -17,13 +16,13 @@ export class authEffects {
       switchMap(({ user }: { user: authRequest }) =>
         this.authService.authenticate(user).pipe(
           map((response: authResponse) =>
-            AuthActions.authenticateUserSuccess({ response })
+            AuthActions.authenticateUserSuccess({ response }),
           ),
           catchError((error) =>
-            of(AuthActions.authenticateUserFailed({ error: error.message }))
-          )
-        )
-      )
-    )
+            of(AuthActions.authenticateUserFailed({ error: error.message })),
+          ),
+        ),
+      ),
+    ),
   );
 }
