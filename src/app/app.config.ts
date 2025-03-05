@@ -41,6 +41,7 @@ export const appConfig: ApplicationConfig = {
         },
       },
     }),
+    provideHttpClient(),
     provideStore(),
     provideEffects([authEffects]),
     provideState(authFeatureKey, authReducer),
