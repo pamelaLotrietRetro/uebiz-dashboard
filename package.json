@@ -63,9 +63,14 @@
     "typescript-eslint": "^8.25.0"
   },
   "lint-staged": {
-    "{src,apps,libs,test}/**/*.ts": [
-    "eslint --fix",
-    "git add"
-  ]
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.{json,md,html,css,scss}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
