@@ -2,7 +2,7 @@ import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } fr
 import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,provideHttpClient } from '@angular/common/http';
 import { CustomTranslateLoader } from '@services/translate.loader.service';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
