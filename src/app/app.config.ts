@@ -6,7 +6,7 @@ import { HttpClient,provideHttpClient } from '@angular/common/http';
 import { CustomTranslateLoader } from '@services/translate.loader.service';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
-import { routes } from './app.routes';
+import { routes } from '@app/app.routes';
 import { authEffects } from '@store/authState/auth.effects';
 import { provideEffects } from '@ngrx/effects';
 import { provideState, provideStore } from '@ngrx/store';
