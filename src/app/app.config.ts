@@ -7,8 +7,6 @@ import { CustomTranslateLoader } from '@services/translate.loader.service';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 import { routes } from '@app/app.routes';
-import { authEffects } from '@store/authState/auth.effects';
-import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { AuthStore } from '@store/authState/auth.store';
 
